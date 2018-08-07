@@ -10,12 +10,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1",
-    "iview": "^3.0.0",
     "axios": "^0.18.0",
     "echarts": "^3.8.5",
+    "iview": "^3.0.0",
     "js-cookie": "^2.2.0",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
     "vuebar": "^0.0.18"
   },
   "devDependencies": {
