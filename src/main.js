@@ -11,10 +11,10 @@ new Vue({
     router: router,
     render: h => h(App),
     data: {
-        currentPageName: ''
+      currentPageName: ''
     },
     mounted () {
-        this.currentPageName = this.$route.name;
+      this.currentPageName = this.$route.name;
     },
     created () {
     }

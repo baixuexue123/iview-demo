@@ -1,16 +1,16 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 import iView from 'iview';
-import HelloWorld from '@/components/HelloWorld'
+import Home from '@/views/home';
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'home',
+      component: Home
     },
     {
       path: '/login',
@@ -18,11 +18,12 @@ const router = new Router({
       component: () => import('@/views/login.vue')
     }
   ]
-})
+});
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start();
-})
+  next();
+});
 
 router.afterEach((to) => {
     iView.LoadingBar.finish();
