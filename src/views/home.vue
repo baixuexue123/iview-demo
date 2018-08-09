@@ -5,6 +5,7 @@
     position: relative;
     border-radius: 4px;
     overflow: hidden;
+    height: 100%;
 }
 .layout-logo{
     width: 100px;
@@ -24,68 +25,58 @@
 </style>
 <template>
     <div class="layout">
-        <Layout>
+        <Layout :style="{height:'100%'}">
             <Header>
                 <Menu mode="horizontal" theme="dark" active-name="1">
                     <div class="layout-logo"></div>
                     <div class="layout-nav">
-                        <MenuItem name="1">
-                            <Icon type="ios-navigate"></Icon>
-                            Item 1
-                        </MenuItem>
-                        <MenuItem name="2">
-                            <Icon type="ios-keypad"></Icon>
-                            Item 2
-                        </MenuItem>
-                        <MenuItem name="3">
-                            <Icon type="ios-analytics"></Icon>
-                            Item 3
-                        </MenuItem>
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
-                            Item 4
-                        </MenuItem>
+                        <i-MenuItem name="1"><Icon type="ios-navigate"></Icon>Item 1</i-MenuItem>
+                        <i-MenuItem name="2"><Icon type="ios-keypad"></Icon>Item 2</i-MenuItem>
+                        <i-MenuItem name="3"><Icon type="ios-analytics"></Icon>Item 3</i-MenuItem>
                     </div>
                 </Menu>
             </Header>
-
-            <Layout>
-                <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
-                    <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']" :class="menuitemClasses">
+            <Layout :style="{height:'100%'}">
+                <Sider hide-trigger :style="{background: '#fff', height:'100%'}">
+                    <Menu active-name="4" theme="dark"  width="auto" :style="{height: '100%'}" @on-select="handleSelect">
+                        <i-MenuItem name="4" to="/">
+                            <Icon type="ios-paper" />
+                            Dashboard
+                        </i-MenuItem>
                         <Submenu name="1">
                             <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
                                 Item 1
                             </template>
-                            <MenuItem name="1-1">Option 1</MenuItem>
-                            <MenuItem name="1-2">Option 2</MenuItem>
-                            <MenuItem name="1-3">Option 3</MenuItem>
+                            <i-MenuItem name="1-1" to="dashboard">dashboard</i-MenuItem>
+                            <i-MenuItem name="1-2" to="500">500</i-MenuItem>
+                            <i-MenuItem name="1-3">Option 3</i-MenuItem>
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
                                 <Icon type="ios-keypad"></Icon>
                                 Item 2
                             </template>
-                            <MenuItem name="2-1">Option 1</MenuItem>
-                            <MenuItem name="2-2">Option 2</MenuItem>
+                            <i-MenuItem name="2-1">Option 1</i-MenuItem>
+                            <i-MenuItem name="2-2">Option 2</i-MenuItem>
                         </Submenu>
                         <Submenu name="3">
                             <template slot="title">
                                 <Icon type="ios-analytics"></Icon>
                                 Item 3
                             </template>
-                            <MenuItem name="3-1">Option 1</MenuItem>
-                            <MenuItem name="3-2">Option 2</MenuItem>
+                            <i-MenuItem name="3-1">Option 1</i-MenuItem>
+                            <i-MMenuItem name="3-2">Option 2</i-MMenuItem>
                         </Submenu>
                     </Menu>
                 </Sider>
-                <Layout :style="{padding: '0 24px 24px'}">
+                <Layout :style="{padding: '0 24px 24px', height:'100%'}">
                     <Breadcrumb :style="{margin: '24px 0'}">
                         <BreadcrumbItem>Home</BreadcrumbItem>
                         <BreadcrumbItem>Components</BreadcrumbItem>
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
-                    <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+                    <Content :style="{padding: '24px', background: '#fff', height:'100%'}">
                         Content
                     </Content>
                 </Layout>
@@ -94,19 +85,17 @@
     </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                isCollapsed: false
-            };
-        },
-        computed: {
-            menuitemClasses: function () {
-                return [
-                    'menu-item',
-                    this.isCollapsed ? 'collapsed-menu' : ''
-                ]
-            }
+export default {
+    name: 'main-main',
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        handleSelect(name) {
+          console.log(name);
         }
     }
+}
 </script>

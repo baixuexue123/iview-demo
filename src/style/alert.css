@@ -1,0 +1,131 @@
+.error-wrapper-bg{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  width:100%;
+  height:100%;
+  background: rgb(243,243,243);
+  overflow:auto;
+  z-index:9999;
+}
+.error-wrapper {
+  margin:0px auto;
+  margin-top:5%;
+  position: relative;
+  font-family: "Microsoft YaHei", sans-serif;
+  min-height:300px;
+  width: 800px;
+}
+.error-wrapper >.brand{
+  position: relative;
+  top: 60px;
+  left: 0;
+  width:340px;
+  transform-origin:170px 0;
+  animation:mymove 2s infinite;
+  animation-direction:alternate;
+}
+@keyframes mymove
+{
+  from {
+    transform: rotate(15deg);
+  }
+  to {
+    transform: rotate(-15deg);
+  }
+}
+.error-wrapper >.info{
+  position: relative;
+  top: 0;
+  left: 390px;
+  width:500px;
+}
+.error-wrapper >.brand .pin{
+  position: absolute;
+  top:20px;
+  left:50%;
+  margin-left:-10px;
+  width:20px;
+  height: 20px;
+  border-radius: 10px;
+  background: radial-gradient(#cd9c69, #e7b68a, #cd9c69);
+  z-index:9;
+}
+.error-wrapper >.brand .line{
+  position: absolute;
+  top:30px;
+  left:50%;
+  margin-left:-1px;
+  height:120px;
+  width:2px;
+  background: #cd9c69;
+}
+.error-wrapper >.brand .leftline{
+  transform: rotate(30deg);
+  transform-origin:0 0;
+}
+.error-wrapper >.brand .rightline{
+  transform: rotate(-30deg);
+  transform-origin:0 0;
+}
+.error-wrapper >.brand .box{
+  position: absolute;
+  top:130px;
+  left:50%;
+  margin-left:-110px;
+  height:150px;
+  width:220px;
+  border-radius: 5px;
+  border:1px solid #cd9c69;
+  background: #cd9c69;
+  z-index:9;
+  color:#FFFFFF;
+}
+.error-wrapper >.brand .box .box-inner{
+  margin:4px;
+  height:140px;
+  text-align: center;
+  width:210px;
+  border-radius: 5px;
+  border:1px solid #a5a5a5;
+  background: #3b7560;
+}
+.error-wrapper >.brand .box .box-inner .error{
+  font-size: 40px;
+  margin: 15px 0px;
+}
+.error-wrapper >.brand .box .box-inner .error-info{
+  font-size:20px;
+  margin:5px 0px;
+}
+
+.error-wrapper>.info .error-notify-error {
+  font-size: 60px;
+  font-weight: 700;
+  color: #d9534f;
+}
+.error-wrapper>.info .error-notify-warning {
+  font-size: 60px;
+  font-weight: 700;
+  color: #f0ad4e;
+}
+.error-wrapper>.info .gobackindex {
+  font-size:14px;
+  color: #0071e1;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.error-wrapper>.info .error-notify-tips{
+  margin-top:5px;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+.error-wrapper>.info .error-text{
+  font-size: 14px;
+  color: #999;
+  margin-top:5px;
+  margin-bottom:5px;
+}

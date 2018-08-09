@@ -13,10 +13,25 @@ const router = new Router({
       component: Home
     },
     {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('@/views/dashboard')
+    },
+    {
       path: '/login',
       name: 'login',
-      component: () => import('@/views/login.vue')
-    }
+      component: () => import('@/views/login')
+    },
+    {
+      path: '*',
+      name: '404',
+      component: () => import('@/views/404')
+    },
+    {
+      path: '/500',
+      name: '500',
+      component: () => import('@/views/500')
+    },
   ]
 });
 

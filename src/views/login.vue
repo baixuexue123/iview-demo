@@ -6,11 +6,11 @@
                 <div class="form-con">
                     <Form ref="loginForm" :model="form" :rules="rules">
                         <FormItem prop="userName">
-                            <Input v-model="form.userName" placeholder="请输入用户名">
+                            <i-Input v-model="form.userName" placeholder="请输入用户名">
                                 <span slot="prepend">
                                     <Icon :size="16" type="person"></Icon>
                                 </span>
-                            </Input>
+                            </i-Input>
                         </FormItem>
                         <FormItem prop="password">
                             <Input type="password" v-model="form.password" placeholder="请输入密码">
@@ -36,7 +36,7 @@ export default {
     data () {
         return {
             form: {
-                userName: 'iview_demo',
+                userName: 'iView_demo',
                 password: ''
             },
             rules: {
