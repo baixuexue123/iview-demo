@@ -28,6 +28,11 @@ const router = new Router({
       component: () => import('@/views/404')
     },
     {
+      path: '/403',
+      name: '403',
+      component: () => import('@/views/403')
+    },
+    {
       path: '/500',
       name: '500',
       component: () => import('@/views/500')

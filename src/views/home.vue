@@ -30,43 +30,43 @@
                 <Menu mode="horizontal" theme="dark" active-name="1">
                     <div class="layout-logo"></div>
                     <div class="layout-nav">
-                        <i-MenuItem name="1"><Icon type="ios-navigate"></Icon>Item 1</i-MenuItem>
-                        <i-MenuItem name="2"><Icon type="ios-keypad"></Icon>Item 2</i-MenuItem>
-                        <i-MenuItem name="3"><Icon type="ios-analytics"></Icon>Item 3</i-MenuItem>
+                        <MenuItem name="1"><Icon type="ios-navigate"></Icon>Item 1</MenuItem>
+                        <MenuItem name="2"><Icon type="ios-keypad"></Icon>Item 2</MenuItem>
+                        <MenuItem name="3"><Icon type="ios-analytics"></Icon>Item 3</MenuItem>
                     </div>
                 </Menu>
             </Header>
             <Layout :style="{height:'100%'}">
                 <Sider hide-trigger :style="{background: '#fff', height:'100%'}">
                     <Menu active-name="4" theme="dark"  width="auto" :style="{height: '100%'}" @on-select="handleSelect">
-                        <i-MenuItem name="4" to="/">
+                        <MenuItem name="4" to="/">
                             <Icon type="ios-paper" />
                             Dashboard
-                        </i-MenuItem>
+                        </MenuItem>
                         <Submenu name="1">
                             <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
                                 Item 1
                             </template>
-                            <i-MenuItem name="1-1" to="dashboard">dashboard</i-MenuItem>
-                            <i-MenuItem name="1-2" to="500">500</i-MenuItem>
-                            <i-MenuItem name="1-3">Option 3</i-MenuItem>
+                            <MenuItem name="1-1" to="dashboard">dashboard</MenuItem>
+                            <MenuItem name="1-2" to="500">500</MenuItem>
+                            <MenuItem name="1-3" to="403">403</MenuItem>
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
                                 <Icon type="ios-keypad"></Icon>
                                 Item 2
                             </template>
-                            <i-MenuItem name="2-1">Option 1</i-MenuItem>
-                            <i-MenuItem name="2-2">Option 2</i-MenuItem>
+                            <MenuItem name="2-1">Option 1</MenuItem>
+                            <MenuItem name="2-2">Option 2</MenuItem>
                         </Submenu>
                         <Submenu name="3">
                             <template slot="title">
                                 <Icon type="ios-analytics"></Icon>
                                 Item 3
                             </template>
-                            <i-MenuItem name="3-1">Option 1</i-MenuItem>
-                            <i-MMenuItem name="3-2">Option 2</i-MMenuItem>
+                            <MenuItem name="3-1">Option 1</MenuItem>
+                            <MenuItem name="3-2">Option 2</MenuItem>
                         </Submenu>
                     </Menu>
                 </Sider>
@@ -86,7 +86,6 @@
 </template>
 <script>
 export default {
-    name: 'main-main',
     data() {
         return {
 
