@@ -1,5 +1,5 @@
 <template>
-  <Menu active-name="1" theme="dark"  width="auto" :style="{height: '100%'}" @on-select="handleSelect">
+  <Menu :active-menu="activeMenu" theme="dark"  width="auto" :style="{height: '100%'}" @on-select="handleSelect">
     <MenuItem name="1" to="/"><Icon type="ios-paper" />Dashboard</MenuItem>
     <MenuItem name="2" to="/alarm"><Icon type="ios-keypad" />实时告警</MenuItem>
     <MenuItem name="3" to="/group"><Icon type="ios-analytics" />分组监控</MenuItem>
@@ -19,16 +19,19 @@
 </template>
 <script>
 export default {
-    name: 'Sidebar',
-    data() {
-        return {
+  name: 'Sidebar',
+  props: {
+    activeMenu: String
+  },
+  data() {
+    return {
 
-        }
-    },
-    methods: {
-        handleSelect(name) {
-          console.log(name);
-        }
     }
+  },
+  methods: {
+    handleSelect(name) {
+      console.log(name);
+    }
+  }
 }
 </script>

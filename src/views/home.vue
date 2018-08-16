@@ -18,64 +18,46 @@
     left: 20px;
 }
 .layout-nav{
-    width: 420px;
     margin: 0 auto;
     margin-right: 20px;
+    float: right;
 }
 </style>
 <template>
     <div class="layout">
         <Layout :style="{height:'100%'}">
             <Header>
-                <Menu mode="horizontal" theme="dark" active-name="1">
-                    <div class="layout-logo"></div>
-                    <div class="layout-nav">
-                        <MenuItem name="1"><Icon type="ios-navigate"></Icon>Item 1</MenuItem>
-                        <MenuItem name="2"><Icon type="ios-keypad"></Icon>Item 2</MenuItem>
-                        <MenuItem name="3"><Icon type="ios-analytics"></Icon>Item 3</MenuItem>
-                    </div>
-                </Menu>
+              <div class="layout-logo"></div>
+              <div class="layout-nav">
+                <Poptip trigger="hover" placement="bottom-end">
+                  <Avatar icon="ios-person" />
+                  <div slot="title"><i>{{username ? username : '匿名用户'}}</i></div>
+                  <div slot="content">
+                    <Button type="error" @click="$emit('logout')">退出登陆</Button>
+                  </div>
+                </Poptip>
+              </div>
             </Header>
             <Layout :style="{height:'100%'}">
                 <Sider hide-trigger :style="{background: '#fff', height:'100%'}">
-                    <Menu active-name="4" theme="dark"  width="auto" :style="{height: '100%'}" @on-select="handleSelect">
-                        <MenuItem name="4" to="/">
-                            <Icon type="ios-paper" />
-                            Dashboard
-                        </MenuItem>
-                        <Submenu name="1">
-                            <template slot="title">
-                                <Icon type="ios-navigate"></Icon>
-                                Item 1
-                            </template>
-                            <MenuItem name="1-1" to="dashboard">dashboard</MenuItem>
-                            <MenuItem name="1-2" to="500">500</MenuItem>
-                            <MenuItem name="1-3" to="403">403</MenuItem>
-                        </Submenu>
-                        <Submenu name="2">
-                            <template slot="title">
-                                <Icon type="ios-keypad"></Icon>
-                                Item 2
-                            </template>
-                            <MenuItem name="2-1">Option 1</MenuItem>
-                            <MenuItem name="2-2">Option 2</MenuItem>
-                        </Submenu>
-                        <Submenu name="3">
-                            <template slot="title">
-                                <Icon type="ios-analytics"></Icon>
-                                Item 3
-                            </template>
-                            <MenuItem name="3-1">Option 1</MenuItem>
-                            <MenuItem name="3-2">Option 2</MenuItem>
-                        </Submenu>
-                    </Menu>
+                  <Menu :active-name="activeMenu" theme="dark"  width="auto" :style="{height: '100%'}" @on-select="handleSelect">
+                    <MenuItem name="1" to="/"><Icon type="ios-paper" />Dashboard</MenuItem>
+                    <MenuItem name="2" to="/alarm"><Icon type="ios-keypad" />实时告警</MenuItem>
+                    <MenuItem name="3" to="/group"><Icon type="ios-analytics" />分组监控</MenuItem>
+                    <Submenu name="4">
+                        <template slot="title">
+                            <Icon type="ios-navigate"></Icon>管理中心
+                        </template>
+                        <MenuItem name="4-1" to="alarmHistory">告警历史</MenuItem>
+                        <MenuItem name="4-2" to="nodeConfig">节点配置</MenuItem>
+                        <MenuItem name="4-3" to="alarmConfig">告警配置</MenuItem>
+                        <MenuItem name="4-4" to="trouble">问题节点</MenuItem>
+                        <MenuItem name="4-5" to="offline">节点下线</MenuItem>
+                        <MenuItem name="4-6" to="paaraa">Paaraa管理</MenuItem>
+                    </Submenu>
+                  </Menu>
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px', height:'100%'}">
-                    <Breadcrumb :style="{margin: '24px 0'}">
-                        <BreadcrumbItem>Home</BreadcrumbItem>
-                        <BreadcrumbItem>Components</BreadcrumbItem>
-                        <BreadcrumbItem>Layout</BreadcrumbItem>
-                    </Breadcrumb>
                     <Content :style="{padding: '24px', background: '#fff', height:'100%'}">
                         Content
                     </Content>
@@ -86,15 +68,16 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-        handleSelect(name) {
-          console.log(name);
-        }
+  data() {
+    return {
+      username: '白雪',
+      activeMenu: '1'
     }
+  },
+  methods: {
+    handleSelect(name) {
+      console.log(name);
+    }
+  }
 }
 </script>

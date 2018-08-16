@@ -1,18 +1,16 @@
 <template>
-  <Menu model="horizontal" :theme="dark">
-    <div class="item">
-      <a href="/" class="sys-logo">Dting</a>
-    </div>
-    <div class="item" style="float: right;">
+  <div>
+    <div class="layout-logo"></div>
+    <div class="layout-nav">
       <Poptip trigger="hover" placement="bottom-end">
-        <Avatar icon="ios-person" size="large" />
-        <div slot="title" class="topbar-username"><i>{{username ? username : '匿名用户'}}</i></div>
-        <div slot="content" class="topbar-usermenu">
+        <Avatar icon="ios-person" />
+        <div slot="title" class="navbar-username"><i>{{username ? username : '匿名用户'}}</i></div>
+        <div slot="content" class="navbar-usermenu">
           <Button type="error" long @click="$emit('logout')">退出登陆</Button>
         </div>
       </Poptip>
     </div>
-  </Menu>
+  </div>
 </template>
 <script>
   export default {
@@ -25,28 +23,31 @@
     }
   }
 </script>
-
 <style scoped>
-  .sys-logo{
-    display: inline-block;
-    width:70px;
-    text-align:center;
+  .layout-logo{
+    width: 100px;
+    height: 30px;
+    background: #5b6270;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 20px;
   }
-  .sys-logo img{
-    width:24px;
-    height:24px;
-    float:left;
-    margin-top: 13px;
-    margin-left: 20px;
+  .layout-nav{
+    margin: 8px auto;
+    margin-right: 20px;
+    float: right;
+    line-height: 32px;
   }
-  .topbar-username{
+  .navbar-username{
     color:#495060;
     text-align: center;
   }
-  .topbar-usermenu{
+  .navbar-usermenu{
     color:#495060;
   }
-  .topbar-usermenu{
+  .navbar-usermenu{
     margin:0px 0px 7px 0px;
     padding:0px;
     width:210px;
